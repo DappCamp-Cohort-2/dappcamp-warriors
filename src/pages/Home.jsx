@@ -3,8 +3,6 @@ import React, { useEffect, useState } from "react";
 import NoNFTsIllustration from "../components/NoNFTsIllustration.jsx";
 import NFT from "../components/NFT.jsx";
 
-import { buyNft } from "../utils/common.js";
-
 import "../App.css";
 
 export default function Home({ currentAccount, contractOwner, contract }) {
@@ -23,7 +21,9 @@ export default function Home({ currentAccount, contractOwner, contract }) {
         return;
       }
 
-      const counter = await contract.counter();
+      const counter = await contract._tokenIds();
+      const baseURI = await contract.baseURI();
+
       const counterInt = parseInt(counter._hex, 16);
 
       setNftsLoaded(false);
@@ -32,18 +32,17 @@ export default function Home({ currentAccount, contractOwner, contract }) {
         Array(counterInt)
           .fill()
           .map(async (_, index) => {
-            const tokenId = index + 1;
-            const nft = await contract.allNfts(tokenId);
+            const tokenId = index;
             const ownerOf = await contract.ownerOf(tokenId);
+            const tokenURI = `${baseURI}/${tokenId}.json`;
 
-            const response = await (await fetch(nft?.tokenURI)).json();
-            const { image, name } = response;
+            const response = await (await fetch(tokenURI)).json();
+            const { image } = response;
 
             return {
               tokenId,
               imageUrl: image,
-              name,
-              price: hexToInt(nft?.price._hex),
+              name: tokenId,
               currentOwner: ownerOf,
             };
           })
@@ -73,12 +72,10 @@ export default function Home({ currentAccount, contractOwner, contract }) {
               return (
                 <NFT
                   imageUrl={nft.imageUrl}
-                  title={nft.tokenName}
-                  price={nft.price}
+                  title={nft.tokenId}
                   currentOwner={nft.currentOwner}
                   contractOwner={contractOwner}
                   currentAccount={currentAccount}
-                  buyHandler={() => buyNft(contract, nft.tokenId, nft.price)}
                 />
               );
             })}
