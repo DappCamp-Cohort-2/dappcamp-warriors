@@ -65,13 +65,54 @@ export const connectWallet = async (setCurrentAccount) => {
     }
 }
 
-export const mintNft = async (contract, tokenURI, price) => {
+export const getTokenCount = async (contract) => {
     try {
         if (!contract) {
             return;
         }
 
-        const txn = await contract.mintNft(tokenURI, price);
+        const result = await contract._tokenIds();
+        return result
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+export const getBaseURI = async (contract) => {
+    try {
+        if (!contract) {
+            return;
+        }
+
+        const result = await contract.baseURI();
+        return result
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+export const updateBaseURI = async (contract, baseURI, callback) => {
+    try {
+        if (!contract) {
+            return;
+        }
+
+        const txn = await contract.setBaseURI(baseURI);
+        await txn.wait();
+
+        callback()
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+export const mintNft = async (contract, contractOwner) => {
+    try {
+        if (!contract) {
+            return;
+        }
+
+        const txn = await contract.mint(contractOwner);
         await txn.wait();
     } catch (error) {
         console.log(error);
