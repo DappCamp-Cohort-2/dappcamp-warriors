@@ -12,7 +12,7 @@ contract DappcampWarriors is
     using Counters for Counters.Counter;
     using Strings for uint256;
 
-    Counters.Counter private _tokenIds;
+    Counters.Counter public _tokenIds;
 
     string public baseURI;
     string public baseExtension = ".json";
@@ -37,10 +37,10 @@ contract DappcampWarriors is
         onlyOwner
         returns (uint256)
     {
-        _tokenIds.increment();
-
         uint256 newWarriorId = _tokenIds.current();
         _mint(to, newWarriorId);
+
+        _tokenIds.increment();
 
         return newWarriorId;
     }
