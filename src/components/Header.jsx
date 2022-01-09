@@ -25,7 +25,7 @@ export default function Header({ isOwner }) {
         <div>
           <p className="flex order-first lg:order-none title-font font-medium items-center text-gray-900 lg:items-center lg:justify-center mb-4 md:mb-0">
             <span className="text-l">DappCamp Warriors by &nbsp;</span>
-            <a href="https://dappcamp.xyz" target="_blank">
+            <a href="https://dappcamp.xyz" target="_blank" rel="noreferrer">
               <img
                 src="https://www.dappcamp.xyz/dappcamp_logo.png"
                 alt="DappCamp logo"

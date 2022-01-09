@@ -13,8 +13,6 @@ export default function Home({ currentAccount, contractOwner, contract }) {
     fetchNfts();
   }, [currentAccount]);
 
-  useEffect(() => {}, [nfts]);
-
   const fetchNfts = async () => {
     try {
       if (!contract) {
@@ -36,15 +34,24 @@ export default function Home({ currentAccount, contractOwner, contract }) {
             const ownerOf = await contract.ownerOf(tokenId);
             const tokenURI = `${baseURI}/${tokenId}.json`;
 
-            const response = await (await fetch(tokenURI)).json();
-            const { image } = response;
+            try {
+              const response = await (await fetch(tokenURI)).json();
+              const { image } = response;
 
-            return {
-              tokenId,
-              imageUrl: image,
-              name: tokenId,
-              currentOwner: ownerOf,
-            };
+              return {
+                tokenId,
+                imageUrl: image,
+                name: tokenId,
+                currentOwner: ownerOf,
+              };
+            } catch {
+              return {
+                tokenId,
+                imageUrl: "https://error404.fun/img/illustrations/09@2x.png",
+                name: tokenId,
+                currentOwner: ownerOf,
+              };
+            }
           })
       );
 
@@ -55,8 +62,6 @@ export default function Home({ currentAccount, contractOwner, contract }) {
       setNftsLoaded(true);
     }
   };
-
-  const hexToInt = (hex) => parseInt(hex, 16);
 
   const isMetamaskConnected = !!currentAccount;
 

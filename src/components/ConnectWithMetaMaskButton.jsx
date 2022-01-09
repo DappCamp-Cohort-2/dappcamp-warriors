@@ -32,6 +32,7 @@ export default function ConnectWithMetaMaskButton({ setCurrentAccount }) {
               display: "inline",
               marginRight: "8px",
             }}
+            alt="MetaMask Fox"
           />
           Connect with MetaMask
         </button>
