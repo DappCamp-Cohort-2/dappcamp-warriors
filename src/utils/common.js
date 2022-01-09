@@ -78,34 +78,6 @@ export const getTokenCount = async (contract) => {
     }
 };
 
-export const getBaseURI = async (contract) => {
-    try {
-        if (!contract) {
-            return;
-        }
-
-        const result = await contract.baseURI();
-        return result
-    } catch (error) {
-        console.log(error);
-    }
-};
-
-export const updateBaseURI = async (contract, baseURI, callback) => {
-    try {
-        if (!contract) {
-            return;
-        }
-
-        const txn = await contract.setBaseURI(baseURI);
-        await txn.wait();
-
-        callback()
-    } catch (error) {
-        console.log(error);
-    }
-};
-
 export const mintNft = async (contract, contractOwner) => {
     try {
         if (!contract) {
