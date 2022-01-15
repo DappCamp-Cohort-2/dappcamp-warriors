@@ -1,8 +1,8 @@
 # DappCamp Warriors
 
-### Genearting the images
+### Generating the images
 
-warriors-generator contains the nodejs script to generate the ~2.2K warriors images
+warriors-generator contains the Node.js script to generate the ~2.2K warriors images
 
 ```
 cd warriors-generator
@@ -13,7 +13,7 @@ node ./index.js images
 
 ### Uploading to IPFS
 -   Upload the generated images directory to [Pinata](https://www.pinata.cloud/) and get the directory hash.
--   Generate metadata for each image. Use file `prep-scripts/prepare_metadata.py` by replacing `IMAGE_DIR_HASH` with image directory hash from last step.
+-   Generate metadata for each image. Use file `prep-scripts/prepare_metadata.py` by replacing `IMAGE_DIR_HASH` with image directory hash from the last step.
 ```
 cd warriors-generator
 mkdir metadatas
