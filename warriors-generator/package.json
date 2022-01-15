@@ -1,0 +1,11 @@
+{
+  "name": "node-script",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "scale-pixel-art": "^1.1.1",
+    "sharp": "^0.29.3"
+  },
+  "type": "module"
+}
