@@ -13,11 +13,11 @@ node ./index.js images
 
 ### Uploading to IPFS
 -   Upload the generated images directory to [Pinata](https://www.pinata.cloud/) and get the directory hash.
--   Generate metadata for each image. Use file `prep-scripts/prepare_metadata.py` by replacing `IMAGE_DIR_HASH` with image directory hash from the last step.
+-   Generate metadata for each image.
 ```
 cd warriors-generator
 mkdir metadatas
-node ./index.js metadatas <ipfs-base-url-here>
+node ./index.js metadatas <images-directory-ipfs-url-here>
 ```
 -   Upload the metadata directory to Pinata and get the directory hash. Let's call it `METADATA_DIR_HASH`.
 -   Once the contract is deployed you can call the setBaseURI() function with this parameter - `https://gateway.pinata.cloud/ipfs/{METADATA_DIR_HASH}/`
