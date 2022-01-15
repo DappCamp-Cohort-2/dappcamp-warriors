@@ -12,7 +12,7 @@ node ./index.js images
 ```
 
 ### Uploading to IPFS
--   Upload the generated images directory to [Pinata](https://www.pinata.cloud/) and get the directory hash.
+-   Upload the generated images directory to [Pinata](https://www.pinata.cloud/).
 -   Generate metadata for each image.
 ```
 cd warriors-generator
