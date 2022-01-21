@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import abiJson from "./contracts/DappcampWarriors/abi.json";
-import addressJson from "./contracts/DappcampWarriors/address.json";
+import abiJson from "./abis/abi.json";
+import addressJson from "./abis/address.json";
 
 import Header from "./components/Header.jsx";
 import ConnectWithMetaMaskButton from "./components/ConnectWithMetaMaskButton";

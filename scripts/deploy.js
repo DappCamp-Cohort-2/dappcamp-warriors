@@ -15,7 +15,7 @@ async function main(contractName) {
 
 function saveFrontendFiles(contractName, contractAddress) {
     const fs = require("fs");
-    const contractsDir = path.join(__dirname, '..', 'src', 'contracts', contractName);
+    const contractsDir = __dirname + "/../src/abis";
 
     if (!fs.existsSync(contractsDir)) {
         fs.mkdirSync(contractsDir);

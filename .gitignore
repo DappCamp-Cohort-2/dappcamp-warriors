@@ -25,6 +25,7 @@ warriors-generator/metadatas
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+yarn.lock
 
 # Hardhat
 artifacts
