@@ -88,7 +88,7 @@ const generateMetadataFiles = async (ipfsBaseURL) => {
                     },
                     image: ipfsBaseURL + `/${total}.png`,
                 })
-                await fs.writeFile(`./metadatas/${total}.json`, metadata)
+                await fs.writeFile(`./metadata/${total}`, metadata)
                 total++
                 console.log("Finished with", total)
             }
@@ -107,7 +107,7 @@ const runCommand = async () => {
 
     if (command === 'images') {
         await generateImages()
-    } else if (command === 'metadatas') {
+    } else if (command === 'metadata') {
         if (!args[1]) {
             throw new Error("Missing IPFS base URL")
         }

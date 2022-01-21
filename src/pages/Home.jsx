@@ -32,7 +32,7 @@ export default function Home({ currentAccount, contractOwner, contract }) {
           .map(async (_, index) => {
             const tokenId = index;
             const ownerOf = await contract.ownerOf(tokenId);
-            const tokenURI = `${baseURI}/${tokenId}.json`;
+            const tokenURI = `${baseURI}/${tokenId}`;
 
             try {
               const response = await (await fetch(tokenURI)).json();

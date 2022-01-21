@@ -2,7 +2,7 @@
 
 node_modules
 warriors-generator/images
-warriors-generator/metadatas
+warriors-generator/metadata
 
 # dependencies
 /node_modules

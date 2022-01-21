@@ -7,7 +7,7 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 
 contract DappcampWarriors is
     ERC721("DappcampWarriors", "DWAR"),
-    Ownable
+    Ownable 
 {
     using Counters for Counters.Counter;
     using Strings for uint256;
@@ -25,20 +25,9 @@ contract DappcampWarriors is
         baseURI = _baseURIParam;
     }
 
-    function tokenURI(uint256 tokenId) public view virtual override returns (string memory) {
-        require(_exists(tokenId), "ERC721Metadata: URI query for nonexistent token");
-
-        string memory currentBaseURI = _baseURI();
-        return bytes(currentBaseURI).length > 0 ? string(abi.encodePacked(currentBaseURI, tokenId.toString(), baseExtension)) : "";
-    }
-
-    function mint(address to)
-        public
-        onlyOwner
-        returns (uint256)
-    {
+    function mint(address to) public onlyOwner returns (uint256) {
         uint256 newWarriorId = _tokenIds.current();
-        _mint(to, newWarriorId);
+        _safeMint(to, newWarriorId);
 
         _tokenIds.increment();
 
