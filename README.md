@@ -49,8 +49,8 @@ node ./index.js images
 -   Generate metadata for each image.
 ```
 cd warriors-generator
-mkdir metadatas
-node ./index.js metadatas <images-directory-ipfs-url-here>
+mkdir metadata
+node ./index.js metadata <images-directory-ipfs-url-here>
 ```
 -   Upload the metadata directory to Pinata and get the directory hash. Let's call it `METADATA_DIR_HASH`.
 -   Once the contract is deployed you can call the setBaseURI() function with this parameter - `https://gateway.pinata.cloud/ipfs/{METADATA_DIR_HASH}/`
