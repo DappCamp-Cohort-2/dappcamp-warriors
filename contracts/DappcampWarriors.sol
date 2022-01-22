@@ -15,7 +15,13 @@ contract DappcampWarriors is
     Counters.Counter public _tokenIds;
 
     string public baseURI;
-    string public baseExtension = ".json";
+
+    constructor() {
+        // Mint 10 NFTs initially
+        for (uint i = 0; i < 10; i++) {
+            mint(msg.sender);
+        }
+    }
 
     function _baseURI() internal view virtual override returns (string memory) {
         return baseURI;
@@ -32,5 +38,5 @@ contract DappcampWarriors is
         _tokenIds.increment();
 
         return newWarriorId;
-    }
+    }    
 }
