@@ -38,7 +38,7 @@ WALLET_PRIVATE_KEY = 'YOUR_WALLET_PRIVATE_KEY'
 
 ```
 cd warriors-generator
-yarn install
+npm install
 mkdir images
 node ./index.js images
 ```
@@ -58,9 +58,19 @@ node ./index.js metadatas <images-directory-ipfs-url-here>
 
 ### Start the Web App
 
+Use the following command to start the web app
+```
+npm start
+```
 
 ### Minting the NFTs
 
+1. After running the web application click on `Mint next item in Collection` to mint a new NFT
+2. You can also use `Remix` to mint NFTs
+    1. Copy the contract abi to Remix IDE
+    2. Paste contract address in `At Address` field
+    3. Use `mint` function to mint an NFT
 
 ### Viewing the NFT Collection on OpenSea
 
+1. Replace `CONTRACT_ADDR` and `TOKEN_ID` in `https://testnets.opensea.io/assets/CONTRACT_ADDR/TOKEN_ID` to access specific token in this collection
