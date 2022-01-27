@@ -6,7 +6,7 @@ require("dotenv").config();
 
 // Possible network values
 const LOCAL_NETWORK = "LOCAL_NETWORK"
-const TEST_NETWORK = "TEST_NETWORK"
+const TEST_NETWORK = "rinkeby"
 
 // By default network is set to local, change it to TEST_NETWORK either in code or by environment variable
 const NETWORK = process.env?.NETWORK || LOCAL_NETWORK
