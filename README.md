@@ -1,5 +1,3 @@
-# DappCamp Warriors
-
 ### Setup
 
 1. Install Depedencies
