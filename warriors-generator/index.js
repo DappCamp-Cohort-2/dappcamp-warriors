@@ -88,7 +88,7 @@ const generateMetadataFiles = async (ipfsBaseURL) => {
                     },
                     image: ipfsBaseURL + `/${total}.png`,
                 })
-                await fs.writeFile(`./metadata/${total}`, metadata)
+                await fs.writeFile(`./metadata/${total}.json`, metadata)
                 total++
                 console.log("Finished with", total)
             }
