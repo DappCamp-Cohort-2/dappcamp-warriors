@@ -13,6 +13,7 @@
 1. Create a file by name `.env` inside the root directory of this project (if not already created by the contract deploy script). Paste the following lines inside this .env file
 
 ```
+NETWORK=rinkeby
 ALCHEMY_API_KEY = 'YOUR_ALCHEMY_API_KEY"
 WALLET_PRIVATE_KEY = 'YOUR_WALLET_PRIVATE_KEY'
 ```
